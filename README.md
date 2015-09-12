@@ -11,3 +11,9 @@ Install ansible and other requirements.
 ```
 pip install -r requirements.txt
 ```
+
+## Running
+
+```
+ansible {playbook} -i {hosts}
+```
