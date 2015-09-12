@@ -1,3 +1,3 @@
 ---
 - name: say hi from the remote
-  command: echo "I am $(whoami)"
+  shell: echo "I am `whoami`"

@@ -1,5 +1,6 @@
+# setup
 - hosts: vpn
-  sudo: true
+  sudo: True
   sudo_user: root
   roles:
     - base

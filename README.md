@@ -15,5 +15,5 @@ pip install -r requirements.txt
 ## Running
 
 ```
-ansible {playbook} -i {hosts}
+ansible-playbook {playbook} -i {hosts}
 ```
