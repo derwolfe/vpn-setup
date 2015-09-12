@@ -3,10 +3,3 @@
 user:
   name: maint
 
-vars_prompt:
-  - name: "user_password"
-    prompt: "Enter password"
-    private: yes
-    encrypt: "bcrypt"
-    confirm: yes
-    salt_size: 7
