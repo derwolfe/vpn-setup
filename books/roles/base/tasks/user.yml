@@ -5,6 +5,8 @@
     name={{ user.name }}
     state=present
     shell=/bin/bash
+    password={{ user_password }}
+    update_password=always
 
 - name: copy over my sshkey
   authorized_key:
@@ -14,5 +16,5 @@
 - name: set maint permissions in /etc/sudoers
   lineinfile: "dest=/etc/sudoers
               state=present
-              line='{{ user.name }}    ALL=(ALL) NOPASSWD: PERMISSIONS'
+              line='{{ user.name }}    ALL=(ALL) ALL'
               validate='/usr/sbin/visudo -cf %s'"
