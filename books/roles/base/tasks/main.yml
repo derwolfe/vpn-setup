@@ -1,0 +1,3 @@
+---
+- name: say hi from the remote
+  shell: echo "I am `whoami`"
