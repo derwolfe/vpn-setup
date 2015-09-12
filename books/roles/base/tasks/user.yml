@@ -1,0 +1,18 @@
+---
+
+- name: add maint user
+  user:
+    name={{ user.name }}
+    state=present
+    shell=/bin/bash
+
+- name: copy over my sshkey
+  authorized_key:
+    user=maint
+    key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+- name: set maint permissions in /etc/sudoers
+  lineinfile: "dest=/etc/sudoers
+              state=present
+              line='{{ user.name }}    ALL=(ALL) NOPASSWD: PERMISSIONS'
+              validate='/usr/sbin/visudo -cf %s'"
