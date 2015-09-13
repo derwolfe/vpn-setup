@@ -4,3 +4,12 @@
   sudo_user: root
   roles:
     - base
+
+# md5 is the only that seems to work?
+  vars_prompt:
+    - name: "user_password"
+      prompt: "Enter password"
+      private: yes
+      encrypt: "md5_crypt"
+      confirm: yes
+      salt_size: 8

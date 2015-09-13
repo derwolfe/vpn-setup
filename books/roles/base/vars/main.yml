@@ -1,0 +1,5 @@
+---
+# vars for the base install
+user:
+  name: maint
+
