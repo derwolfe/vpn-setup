@@ -1,0 +1,10 @@
+---
+# firewall related tasks
+- name: install ufw
+  apt: package=ufw state=installed
+
+- name: add ports to firewall
+  ufw: rule=allow name={{ item }}
+  with_items:
+    - OpenSSH
+    - OpenVPN
