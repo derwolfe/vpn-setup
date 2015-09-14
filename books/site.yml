@@ -3,7 +3,8 @@
   sudo: True
   sudo_user: root
   roles:
-    - base
+#    - base
+    - firewall
 
 # md5 is the only that seems to work?
   vars_prompt:

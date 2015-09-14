@@ -3,8 +3,9 @@
 - name: install ufw
   apt: package=ufw state=installed
 
-- name: add ports to firewall
-  ufw: rule=allow name={{ item }}
-  with_items:
-    - OpenSSH
-    - OpenVPN
+# not sure if this should be here or with the SSH code!
+- name: add OpenSSH to firewall
+  ufw: rule=allow name=OpenSSH port=22
+
+- name: enable ufw
+  ufw: state=enabled logging=on
