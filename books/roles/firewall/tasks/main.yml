@@ -1,7 +1,19 @@
 ---
 # firewall related tasks
 - name: install ufw
-  apt: package=ufw state=installed
+  apt:
+    package={{ item }}
+    state=latest
+  with_items:
+    - ufw
+    - fail2ban
+
+- name: setup fail2ban
+  copy:
+    src=../files/jail.conf.local
+    dest=/etc/fail2ban/jail.conf.local
+    mode=0644
+    owner=root
 
 # not sure if this should be here or with the SSH code!
 - name: add OpenSSH to firewall
@@ -9,3 +21,6 @@
 
 - name: enable ufw
   ufw: state=enabled logging=on
+
+- name: enable fail2ban
+  command: service fail2ban restart
