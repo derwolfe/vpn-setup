@@ -4,12 +4,13 @@
   sudo_user: root
   roles:
     - base
-    - firewall
+    - openvpn
+    #- firewall
 
-# md5 is the only that seems to work?
+  # md5 is the only that seems to work?
   vars_prompt:
     - name: "user_password"
-      prompt: "Enter password"
+      prompt: "Enter maint's password"
       private: yes
       encrypt: "md5_crypt"
       confirm: yes
