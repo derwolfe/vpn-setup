@@ -1,0 +1,7 @@
+vars:
+  cert:
+    country: US
+    state: TX
+    city: DFW
+    organization: vpn of the north
+    email: root@localhost.com

@@ -1,1 +1,12 @@
 # install openvpn, generate needed ca, server certs, key, client csr, cert, key.
+- name: install openvpn package
+  apt: name=openvpn state=latest
+
+- name: copy vpn-config
+  copy:
+    src=../files/server.conf
+    dest=/etc/openvpn/server.conf
+    owner=root
+    mode=700
+
+# add handlers to start it

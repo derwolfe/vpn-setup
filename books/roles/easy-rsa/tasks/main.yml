@@ -1,0 +1,15 @@
+- name: install easy-rsa package
+  apt: name=easy-rsa state=latest
+
+- name: make easy directory
+  file: path=/etc/openvpn/easy-rsa state=directory
+
+- name: mv easy-rsa scripts
+  command: cp -R /usr/share/easy-rsa/* easy-rsa/
+
+- name: copy easy-rsa config
+  template:
+    src=../templates/easy-rsa-vars.j2
+    dest=/etc/openvpn/easy-rsa/vars
+    owner=root
+    mode=700

@@ -4,6 +4,8 @@
   sudo_user: root
   roles:
     - base
+    - openvpn
+    - easy-rsa
 
 # md5 is the only that seems to work?
   vars_prompt:
